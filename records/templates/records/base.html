@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hospital Record System</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+        }
+
+        .header {
+            background: #0a3d62;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header a.admin-btn {
+            background: #ffffff;
+            color: #0a3d62;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .header a.admin-btn:hover {
+            background: #d1e1e9;
+        }
+
+        /* Continuous Back and Forth Typewriter Effect */
+        .typewriter-container {
+            display: inline-block;
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid white;
+            white-space: nowrap;
+            margin: 0;
+            letter-spacing: 1px;
+            font-size: 24px;
+            width: 0; /* Start at 0 */
+            /* Added 'alternate' to make it go back and forth */
+            animation: 
+                typing 4s steps(30, end) infinite alternate, 
+                blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: white }
+        }
+
+        @media screen and (max-width: 600px) {
+            .header {
+                padding: 10px 15px;
+            }
+            .typewriter {
+                font-size: 16px;
+                letter-spacing: 0.5px;
+            }
+            .header a.admin-btn {
+                padding: 5px 10px;
+                font-size: 12px;
+            }
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        button {
+            background: #0a3d62;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #07416b;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            margin-top: 15px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        th {
+            background: #0a3d62;
+            color: white;
+        }
+
+        .actions a {
+            margin-right: 10px;
+            text-decoration: none;
+            color: #0a3d62;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="typewriter-container">
+        <h2 class="typewriter">Hospital Record System</h2>
+    </div>
+    <a href="/admin-login/" class="admin-btn">Admin</a>
+</div>
+
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

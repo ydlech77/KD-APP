@@ -1,0 +1,103 @@
+{% extends "records/base.html" %}
+{% block content %}
+
+<style>
+    .form-card {
+        max-width: 800px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    textarea {
+        min-height: 120px;
+    }
+
+    button {
+        background: #2ecc71;
+        color: white;
+        border: none;
+        padding: 10px;
+        width: 100%;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    small {
+        color: #555;
+    }
+</style>
+
+<div class="form-card">
+    <h3>Edit Patient Record</h3>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" name="full_name" value="{{ patient.full_name }}">
+        </div>
+
+        <div class="form-group">
+            <label>Date of Birth</label>
+            <input type="date" name="date_of_birth" value="{{ patient.date_of_birth }}">
+        </div>
+
+        <div class="form-group">
+            <label>Gender</label>
+            <input type="text" name="gender" value="{{ patient.gender }}">
+        </div>
+
+        <div class="form-group">
+            <label>Phone Number</label>
+            <input type="text" name="phone_number" value="{{ patient.phone_number }}">
+        </div>
+
+        <div class="form-group">
+            <label>Address</label>
+            <textarea name="address">{{ patient.address }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Emergency Contact</label>
+            <input type="text" name="emergency_contact" value="{{ patient.emergency_contact }}">
+        </div>
+
+        <!-- ✅ FLEXIBLE FIELD -->
+        <div class="form-group">
+            <label>Additional Medical Information</label>
+            <textarea name="additional_info">{{ patient.additional_info }}</textarea>
+            <small>
+                Example: <br>
+                Sickness: Malaria <br>
+                Blood Group: O+ <br>
+                Allergy: None
+            </small>
+        </div>
+
+        <button type="submit">Update Patient Record</button>
+    </form>
+</div>
+
+{% endblock %}

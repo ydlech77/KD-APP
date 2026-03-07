@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Medical Record</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            font-size: 16px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;   /* Bigger title */
+        }
+
+        .section {
+            margin-top: 25px;
+            line-height: 1.8;
+        }
+
+        h3 {
+            font-size: 24px;   /* Bigger "Medical Record" heading */
+            margin-bottom: 10px;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            font-size: 18px;   /* Bigger medical record text */
+            white-space: pre-wrap;
+            border-radius: 5px;
+        }
+
+        .print-btn {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 25px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        @media print {
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h2>K.D App – Patient Medical Record</h2>
+
+<div class="section">
+    <strong>Full Name:</strong> {{ patient.full_name }}<br>
+    <strong>Date of Birth:</strong> {{ patient.date_of_birth }}<br>
+    <strong>Gender:</strong> {{ patient.gender }}<br>
+    <strong>Phone:</strong> {{ patient.phone_number }}<br>
+    <strong>Address:</strong> {{ patient.address }}<br>
+    <strong>Emergency Contact:</strong> {{ patient.emergency_contact }}<br>
+    <strong>Date Created:</strong> {{ patient.created_at }}<br>
+    <strong>Last Updated:</strong> {{ patient.updated_at }}
+</div>
+
+<div class="section">
+    <h3>Medical Record</h3>
+    <pre>{{ patient.additional_info }}</pre>
+</div>
+
+<div class="print-btn">
+    <button onclick="window.print()">Print</button>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% extends "records/base.html" %}
+{% block content %}
+
+<h3>Admin Login</h3>
+
+<form method="post">
+    {% csrf_token %}
+    <input type="password" id="password" name="password" placeholder="Enter password">
+    <br><br>
+    <label style="display: inline-flex; align-items: center; gap: 5px;">
+        <input type="checkbox" id="show-password">
+        Show Password
+    </label>
+    <br><br>
+    <button type="submit">Login</button>
+</form>
+
+{% if error %}
+<p style="color:red;">Wrong password</p>
+{% endif %}
+
+<script>
+    const passwordInput = document.getElementById('password');
+    const showPassword = document.getElementById('show-password');
+
+    showPassword.addEventListener('change', function() {
+        passwordInput.type = this.checked ? 'text' : 'password';
+    });
+</script>
+
+{% endblock %}
