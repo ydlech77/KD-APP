@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Hospital Record System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
         body {
@@ -94,10 +95,13 @@
         }
 
         input, textarea {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-        }
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+        
 
         table {
             width: 100%;
@@ -123,6 +127,30 @@
             color: #0a3d62;
             font-weight: bold;
         }
+
+        @media (max-width: 600px) {
+
+    .container {
+        padding: 12px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .typewriter {
+        font-size: 18px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+
+}
+
     </style>
 </head>
 <body>
